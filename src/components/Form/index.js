@@ -6,8 +6,11 @@ import './styles.scss';
 
 // == Component
 const Form = () => (
-  <form className="form">
-    <h1>Composant : Form</h1>
+  <form className="addTaskForm">
+    <input
+      className="addTaskForm__input"
+      placeholder="Ajouter une tâche"
+    />
   </form>
 );
 

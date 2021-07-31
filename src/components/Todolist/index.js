@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 
-// == Local imports 
+// == Local imports
 import './styles.scss';
 import Form from 'src/components/Form';
 import Counter from 'src/components/Counter';

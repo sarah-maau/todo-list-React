@@ -1,0 +1,28 @@
+@use 'src/styles/vars';
+
+.addTaskForm {
+  margin-bottom: 4rem;
+
+  &__input {
+    width: 100%;
+    padding:1em;
+    background-color: vars.$color-dark;
+    border: 2px solid vars.$color-darker;
+    box-shadow: vars.$input-shadow;
+    font-size: 1.5em;
+    font-family: vars.$font;
+    font-weight: bold;
+    
+    &:focus {
+      box-shadow: vars.$input-shadow-focus;
+    }
+    
+    &::placeholder {
+      box-shadow: vars.$color-placeholder;
+      color: vars.$color-text-placeholder;
+    }
+    
+    
+  }
+}
+

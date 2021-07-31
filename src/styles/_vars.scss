@@ -1,12 +1,14 @@
 @use 'sass:color';
 
+$font: 'Sulphur Point', sans-serif;
 $color: #097988;
 $color-dark: color.scale($color, $lightness: -40%);
 $color-darker: color.scale($color, $lightness: -60%);
 $color-light: #ffffff;
 $color-grey: #eeeeee;
 $color-grey-dark: color.scale($color-grey, $lightness: -40%);;
-$color-placeholder: rgba(205, 205, 205, .5);
+$color-placeholder: rgba(203, 230, 235, .5);
+$color-text-placeholder: #CBE6EB;
 
-$input-shadow: inset 0px 0px 25px 25px rgba(0,0,0,0.1);
-$input-shadow-focus: inset 0px 0px 25px 25px rgba(0,0,0,0.3);
+$input-shadow: inset 0px 0px 25px 25px rgba(0,0,0, .1);
+$input-shadow-focus: inset 0px 0px 25px 25px rgba(0,0,0, .3);
