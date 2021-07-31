@@ -37,14 +37,14 @@ class TodoList extends PureComponent {
   handleTaskCheckbox = (taskId) => () => {
     const { tasks } = this.state;
     const tasksModified = tasks.map((task) => {
-      if(taskId === task.id) {
+      if (taskId === task.id) {
         return {
           ...task,
           done: !task.done,
         };
       }
       return task;
-    })
+    });
 
     this.setState({
       tasks: tasksModified,
