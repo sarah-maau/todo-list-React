@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.taskList {
+  margin-top: 1rem;
+}
+
+.task {
+  background-color: vars.$color-light;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: .3em;
+  &--checked {
+    text-decoration: line-through;
+    opacity: .5;
+  }
+
+  &__checkbox {
+    margin-right: 1em;
+  }
+}
