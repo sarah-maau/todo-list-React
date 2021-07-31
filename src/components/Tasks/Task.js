@@ -8,7 +8,7 @@ import './styles.scss';
 
 // == Component
 const Task = ({ id, label, done }) => (
-  <li className={done ? 'task task--checked' : 'task' }>
+  <li className={done ? 'task task--checked' : 'task'}>
     <input
       id={`task-${id}`}
       className="task__checkbox"

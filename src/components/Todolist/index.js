@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 // == Import npm
 import React, { PureComponent } from 'react';
 
@@ -14,15 +15,35 @@ class TodoList extends PureComponent {
     super(props);
     this.state = {
       tasks: tasksData,
+      taskInputLabel: '',
     };
   }
 
-  render() {
+  handleTaskInputLabelChange = (event) => {
+    this.setState({
+      taskInputLabel: event.target.value,
+    });
+  }
+
+  addTask = (label, done = false) => {
     const { tasks } = this.state;
+    let maxID = Math.max(...tasks.map((task) => task.id));
+    this.setState({
+      tasks: [...tasks, { id: ++maxID, label, done }],
+      taskInputLabel: '',
+    });
+  }
+
+  render() {
+    const { tasks, taskInputLabel } = this.state;
     const tasksInProgress = tasks.filter((task) => !task.done).length;
     return (
       <div className="todoList">
-        <Form />
+        <Form
+          onSubmit={this.addTask}
+          inputValue={taskInputLabel}
+          onInputChange={this.handleTaskInputLabelChange}
+        />
         <Counter nbTasks={tasksInProgress} />
         <Tasks tasks={tasks} />
       </div>
