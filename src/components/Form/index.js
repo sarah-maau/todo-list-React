@@ -1,28 +1,43 @@
 // == Import npm
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // == Local imports
 import './styles.scss';
 
 // == Component
-const Form = ({ inputValue, onInputChange, onSubmit }) => {
-  const handleSubmit = (event) => {
+class Form extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.inputRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.inputRef.current.focus();
+  }
+
+  handleSubmit = (event) => {
+    const { onSubmit, inputValue } = this.props;
     event.preventDefault();
     onSubmit(inputValue);
   };
 
-  return (
-    <form className="addTaskForm" onSubmit={handleSubmit}>
-      <input
-        className="addTaskForm__input"
-        placeholder="Ajouter une tâche"
-        value={inputValue}
-        onChange={onInputChange}
-      />
-    </form>
-  );
-};
+  render() {
+    const { inputValue, onInputChange } = this.props;
+    return (
+      <form className="addTaskForm" onSubmit={this.handleSubmit}>
+        <input
+          ref={this.inputRef}
+          className="addTaskForm__input"
+          placeholder="Ajouter une tâche"
+          value={inputValue}
+          onChange={onInputChange}
+        />
+      </form>
+    );
+  }
+}
 
 Form.propTypes = {
   inputValue: PropTypes.string,
