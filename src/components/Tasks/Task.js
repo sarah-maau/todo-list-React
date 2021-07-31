@@ -7,13 +7,16 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Component
-const Task = ({ id, label, done }) => (
+const Task = ({
+  id, label, done, onCheckbox,
+}) => (
   <li className={done ? 'task task--checked' : 'task'}>
     <input
       id={`task-${id}`}
       className="task__checkbox"
       type="checkbox"
-      checked
+      checked={done}
+      onChange={onCheckbox(id)}
     />
     <label className="task__label" htmlFor={`task-${id}`}>
       {label}
@@ -25,11 +28,13 @@ Task.propTypes = {
   id: PropTypes.number.isRequired,
   label: PropTypes.string,
   done: PropTypes.bool,
+  onCheckbox: PropTypes.func,
 };
 
 Task.defaultProps = {
   label: 'Tâche non nommée',
   done: false,
+  onCheckbox: () => {},
 };
 
 // == Export

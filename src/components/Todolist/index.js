@@ -34,6 +34,17 @@ class TodoList extends PureComponent {
     });
   }
 
+  handleTaskCheckbox = (id) => () => {
+    const { tasks } = this.state;
+    const newTasks = [...tasks];
+    const taskToUpdate = newTasks.find((task) => task.id === id);
+    taskToUpdate.done = !taskToUpdate.done;
+
+    this.setState({
+      tasks: newTasks,
+    });
+  }
+
   render() {
     const { tasks, taskInputLabel } = this.state;
     const tasksInProgress = tasks.filter((task) => !task.done).length;
@@ -45,7 +56,7 @@ class TodoList extends PureComponent {
           onInputChange={this.handleTaskInputLabelChange}
         />
         <Counter nbTasks={tasksInProgress} />
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onTaskCheckbox={this.handleTaskCheckbox} />
       </div>
     );
   }

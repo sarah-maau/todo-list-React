@@ -7,11 +7,11 @@ import Task from './Task';
 import './styles.scss';
 
 // == Component
-const Tasks = ({ tasks }) => (
+const Tasks = ({ tasks, onTaskCheckbox }) => (
   <div className="tasks">
     <ul className="taskList">
       { tasks.map((task) => (
-        <Task {...task} key={task.id} />
+        <Task {...task} key={task.id} onCheckbox={onTaskCheckbox} />
       ))}
     </ul>
   </div>
@@ -25,10 +25,12 @@ Tasks.propTypes = {
       done: PropTypes.bool,
     }),
   ),
+  onTaskCheckbox: PropTypes.func,
 };
 
 Tasks.defaultProps = {
   tasks: [],
+  onTaskCheckbox: () => {},
 };
 
 // == Export
