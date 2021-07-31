@@ -1,14 +1,12 @@
 // == Import npm
 import React from 'react';
 
-// == Local imports 
+// == Local imports
 import './styles.scss';
 
 // == Component
 const Counter = () => (
-  <div className="counter">
-    <h1>Composant : Counter</h1>
-  </div>
+  <h2 className="taskCounter"> X tâches en cours</h2>
 );
 
 // == Export

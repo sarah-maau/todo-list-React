@@ -9,7 +9,7 @@ import Tasks from 'src/components/Tasks';
 
 // == Component
 const TodoList = () => (
-  <div className="toDoList">
+  <div className="todoList">
     <Form />
     <Counter />
     <Tasks />

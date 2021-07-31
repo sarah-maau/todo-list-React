@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 
-// == Local imports 
+// == Local imports
 import './styles.scss';
 
 // == Component
